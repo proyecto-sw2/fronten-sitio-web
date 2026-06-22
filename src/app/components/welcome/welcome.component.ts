@@ -71,7 +71,7 @@ export class WelcomeComponent implements AfterViewInit, OnDestroy {
 
   // EmailJS Configuration
   private readonly EMAILJS_CONFIG = {
-    SERVICE_ID: 'service_c5qriij', // Reemplazar con tu Service ID
+    SERVICE_ID: 'service_8muh6pj', // Reemplazar con tu Service ID
     TEMPLATE_ID: 'template_cwb0n2f', // Reemplazar con tu Template ID
     PUBLIC_KEY: 'FcMtfRv78IoUaa2Bb', // Reemplazar con tu Public Key
   };
@@ -329,22 +329,35 @@ export class WelcomeComponent implements AfterViewInit, OnDestroy {
 
   private getFormattedBusinessType(tipo: string): string {
     const tipos = {
-      taller: 'Taller Mecánico',
-      concesionario: 'Concesionario',
-      'centro-tecnico': 'Centro Técnico',
+      'empresa-privada': 'Empresa Privada',
+      'institucion-educativa': 'Institución Educativa',
+      'persona-particular': 'Persona Particular',
       otro: 'Otro',
     };
     return tipos[tipo as keyof typeof tipos] || tipo;
   }
 
+  // Toast properties
+  toastMessage = '';
+  toastType: 'success' | 'error' = 'success';
+  showToast = false;
+
   private showSuccessMessage(message: string) {
-    // Puedes implementar un toast o modal aquí
-    alert(message);
+    this.toastMessage = message;
+    this.toastType = 'success';
+    this.showToast = true;
+    setTimeout(() => {
+      this.showToast = false;
+    }, 5000); // Se oculta después de 5 segundos
   }
 
   private showErrorMessage(message: string) {
-    // Puedes implementar un toast o modal aquí
-    alert(message);
+    this.toastMessage = message;
+    this.toastType = 'error';
+    this.showToast = true;
+    setTimeout(() => {
+      this.showToast = false;
+    }, 5000);
   }
 
   // === Chatbot Methods ===
