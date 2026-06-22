@@ -1,4 +1,4 @@
 export const environment = {
-  production: false,
+  production: true,
   chatbotApiUrl: 'https://chatbot-sitio-web.onrender.com/api/chatbot',
 };

@@ -56,13 +56,13 @@ export class ChatbotService {
       fallbackMessage = `No se pudo conectar con el servidor. Por favor, verifica tu conexión a internet o intenta más tarde.`;
     } else if (error.status >= 500) {
       // Error del servidor
-      fallbackMessage = 'El servidor está experimentando dificultades técnicas. Por favor, contacta directamente a info@qualix.com';
+      fallbackMessage = 'El servidor está experimentando dificultades técnicas. Por favor, contacta directamente a wilderc.q.16@gmail.com';
     } else if (error.status === 400) {
       // Error de solicitud
       fallbackMessage = 'Hubo un problema con tu consulta. ¿Podrías reformular tu pregunta?';
     } else {
       // Otros errores
-      fallbackMessage = 'Estoy experimentando dificultades técnicas. Mientras tanto, puedes contactarnos directamente a info@qualix.com o completar el formulario de demo.';
+      fallbackMessage = 'Disculpa, estoy experimentando dificultades técnicas. Por favor, contacta directamente a wilderc.q.16@gmail.com o completa el formulario de demo en nuestra página web.';
     }
 
     return of({
@@ -76,17 +76,17 @@ export class ChatbotService {
     const lowerMessage = userMessage.toLowerCase();
     
     if (lowerMessage.includes('contacto') || lowerMessage.includes('email') || lowerMessage.includes('telefono')) {
-      return 'Puedes contactarnos en info@qualix.com, llamar al +591 7000-0000, o completar el formulario de demo en nuestra página web.';
+      return 'Puedes contactarnos en wilderc.q.16@gmail.com, llamar al +591 60937613, o completar el formulario de contacto en nuestra página web.';
     }
     
     if (lowerMessage.includes('servicio') || lowerMessage.includes('que hacen')) {
-      return 'QUALIX se especializa en desarrollo de software para el sector automotriz: gestión de talleres, diagnósticos digitales con IA, análisis de datos, apps móviles y soluciones en la nube.';
+      return 'Kryptek se especializa en soluciones tecnológicas de alto impacto: desarrollo de software a medida, inteligencia artificial, soluciones Blockchain, y aplicaciones móviles.';
     }
     
     if (lowerMessage.includes('demo') || lowerMessage.includes('prueba')) {
-      return 'Puedes solicitar una demo completando el formulario en la sección "Solicita una Demo" de nuestra página web.';
+      return 'Puedes solicitar una demo completando el formulario de contacto en nuestra página web.';
     }
     
-    return 'Disculpa, estoy experimentando dificultades técnicas. Por favor, contacta directamente a info@qualix.com para obtener información sobre nuestras soluciones para el sector automotriz.';
+    return 'Disculpa, estoy experimentando dificultades técnicas. Por favor, contacta directamente a wilderc.q.16@gmail.com para obtener información sobre nuestras soluciones tecnológicas.';
   }
 }
