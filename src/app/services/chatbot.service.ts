@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of, catchError, timeout } from 'rxjs';
 
+import { environment } from '../environments/environment';
 
 export interface ChatMessage {
   text: string;
@@ -23,7 +24,7 @@ export interface ChatResponse {
   providedIn: 'root'
 })
 export class ChatbotService {
-  private readonly API_URL = 'http://localhost:3000/api/chatbot';
+  private readonly API_URL = environment.chatbotApiUrl;
   private readonly REQUEST_TIMEOUT = 30000; // 30 segundos
 
   constructor(private http: HttpClient) { }
@@ -52,7 +53,7 @@ export class ChatbotService {
     
     if (error.status === 0) {
       // Error de conexión
-      fallbackMessage = 'No se pudo conectar con el servidor. Por favor, verifica tu conexión a internet y que el servidor esté funcionando en http://localhost:3000';
+      fallbackMessage = `No se pudo conectar con el servidor. Por favor, verifica tu conexión a internet o intenta más tarde.`;
     } else if (error.status >= 500) {
       // Error del servidor
       fallbackMessage = 'El servidor está experimentando dificultades técnicas. Por favor, contacta directamente a info@qualix.com';
