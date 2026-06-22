@@ -1,0 +1,70 @@
+/* Contenedor Three.js - Mejorado */
+.three-container {
+  width: 90%;
+  height: 30vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Asegurar que el canvas mantenga sus proporciones */
+#sceneContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: block;
+  /* Prevenir distorsión durante el zoom del navegador */
+  transform-origin: center center;
+}
+
+/* IMPORTANTE: Remover los !important y object-fit que causan conflictos */
+#sceneContainer canvas {
+  display: block;
+  /* Dejar que Three.js maneje las dimensiones naturalmente */
+  max-width: 100%;
+  max-height: 100%;
+  /* Centrar el canvas dentro del contenedor */
+  margin: 0 auto;
+  /* Eliminar transiciones que puedan causar distorsión */
+  transition: none;
+}
+
+/* Hover effects mejorados */
+.hover-lift {
+  @apply w-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg;
+}
+
+/* Secciones con padding mejorado */
+section {
+  padding-top: 80px;
+}
+
+/* Responsive adjustments para el contenedor 3D */
+@media (max-width: 768px) {
+  .three-container {
+    width: 100%;
+    height: 25vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .three-container {
+    height: 20vh;
+  }
+}
+
+/* Evitar problemas de zoom en diferentes navegadores */
+@supports (zoom: 1) {
+  #sceneContainer {
+    /* Algunos navegadores manejan el zoom diferente */
+    contain: layout style paint size;
+  }
+}
+
+/* Optimización para dispositivos de alta densidad */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  #sceneContainer canvas {
+    /* Asegurar renderizado nítido en pantallas retina */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}

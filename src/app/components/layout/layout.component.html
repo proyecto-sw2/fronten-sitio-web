@@ -1,0 +1,16 @@
+<div class="min-h-screen bg-gradient-to-b from-blue-gray-50 to-blue-gray-100/50">
+  <!-- Navbar -->
+  <app-navbar (chatToggle)="onChatToggle()"/>
+  
+  <!-- Main Content Container -->
+  <main class="relative">
+    <!-- Content Wrapper -->
+    <div class="max-w-full mx-auto">
+      <app-welcome/>
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+  
+  <!-- Footer -->
+  <app-footer></app-footer>
+</div>

@@ -1,0 +1,28 @@
+
+.menu-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+.menu-item:hover {
+  transform: translateY(5px); /* Eleva ligeramente */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade una sombra para dar sensación de flotación */
+}
+.your-class {
+  background: rgba(255, 255, 255, 0.6); /* Blanco con 60% de opacidad */
+  backdrop-filter: blur(10px); /* Desenfoque del fondo */
+  -webkit-backdrop-filter: blur(10px); /* Compatibilidad con Safari */
+  border-radius: 16px; /* Bordes redondeados */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Borde translúcido */
+}
+.entrada {
+  display: inline-block;
+  margin: 0 0.5rem;
+  opacity: 1; /* Inicialmente oculto */
+  animation: fadeInDown 1s forwards; /* Usamos 'forwards' para mantener el estado final */
+}
+
+@keyframes fadeInDown {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
